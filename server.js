@@ -31,7 +31,7 @@ mongoose.connect('mongodb://localhost/unit18Populater', {useNewUrlParser: true, 
 
 // Routes
 
-// A GET route for scraping the echoJS website
+// A GET route for scraping the Weather website
 app.get('/scrape', async function(req, res) {
   // First, we grab the body of the html with axios
   const response = await axios.get('http://www.weather.com/');
