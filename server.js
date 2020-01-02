@@ -34,32 +34,34 @@ mongoose.connect('mongodb://localhost/unit18Populater', {useNewUrlParser: true, 
 // A GET route for scraping the Weather website
 app.get('/scrape', async function(req, res) {
   // First, we grab the body of the html with axios
-  const response = await axios.get('http://www.weather.com/');
+  const response = await axios.get('https://hackernoon.com/tagged/ai');
   // Then, we load that into cheerio and save it to $ for a shorthand selector
   const $ = cheerio.load(response.data);
-
-  // Now, we grab every h2 within an article tag, and do the following:
-  $('div.wx-media-object').each(function(i, element) {
+// console.log(response.data);
+  // Now, we grab every div with the class story card  item within an article tag, and do the following:
+  $('div.story-card').each(function(i, element) {
     // Save an empty result object
     const result = {};
 
     // Add the text and href of every link, and save them as properties of the result object
+   
     result.title = $(this)
-        .children('div').children("a").attr('href')
-        
-    result.link = $(this)
-        .children('a')
-        .attr('href');
+    .children('div.excerpt').children("div.title").children('a').text();
 
+    result.link = $(this)
+        .children('div').children("a").attr('href');
+        
+   
+console.log({result});
     // Create a new Article using the `result` object built from scraping
     db.Article.create(result)
         .then(function(dbArticle) {
           // View the added result in the console
-          console.log(dbArticle);
+          // console.log(dbArticle);
         })
         .catch(function(err) {
           // If an error occurred, log it
-          console.log(err);
+          // console.log(err);
         });
   });
 
