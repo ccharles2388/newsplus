@@ -31,7 +31,11 @@ Hacker Noon Information News Plus - Hacker Noon Technologies So Much More
 
 Format: ![Direct Image Link]https://github.com/ccharles2388/newsplus/blob/master/public/img/newsplus_1.png)
 <br>
+2. Customer Runs node News Plus Scrape - Hacker Noon Technologies 
+![GitHub Logo](public/img/hackernoon_1.png)
 
+Format: ![Direct Image Link]https://github.com/ccharles2388/newsplus/blob/master/public/img/hackernoon_1.png)
+<br>
 
 
 ### Technologies Utilized
