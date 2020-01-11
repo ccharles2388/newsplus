@@ -33,8 +33,10 @@ mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/unit18Populater
 
 // A GET route for scraping the Weather website
 app.get('/scrape', async function (req, res) {
+
+  
   // First, we grab the body of the html with axios
-  const response = await axios.get('https://hackernoon.com/tagged/ai');
+  const response = await axios.get('https://hackernoon.com/');
   // Then, we load that into cheerio and save it to $ for a shorthand selector
   const $ = cheerio.load(response.data);
   // console.log(response.data);
@@ -49,10 +51,10 @@ app.get('/scrape', async function (req, res) {
       .children('div.excerpt').children("div.title").children('a').text();
 
     result.link = $(this)
-      .children('div').children("a").attr('href');
+    .children('div.excerpt').children("div.title").children('a').attr('href');
 
 
-    console.log({ result });
+    // console.log({ result });
     // Create a new Article using the `result` object built from scraping
     db.Article.create(result)
       .then(function (dbArticle) {
