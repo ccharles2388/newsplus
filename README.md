@@ -35,12 +35,21 @@ Format: ![Direct Image Link]https://github.com/ccharles2388/newsplus/blob/master
 
 ### Technologies Utilized
 
-* mySQL
+* Mongo Database
 * NodeJS
 * JavaScript
-* NPM Inquirer
-* NPM Colors
-* NPM console.table
+* Axios
+* Cheerio
+* Mongoose
+* Morgan
+* Express
+* Express Handlebars
+* BootStrap
+
+### Platforms Utilized
+
+* Git Hub For Development
+* Heroku For Production
 
 ---
 
