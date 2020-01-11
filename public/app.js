@@ -5,7 +5,7 @@ $.getJSON('/api/articles', function(data) {
     // Display the apropos information on the page
     $('#articles').append(`
     <p style="cursor:pointer" data-id="${data[i]._id}">${data[i].title}<br />
-    <a href="${data[i].link}" target="_blank">&#9758;</a>
+    <a href="https://hackernoon.com${data[i].link}" target="_blank">&#9758;</a>
     </p>
     `);
   }
